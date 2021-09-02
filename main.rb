@@ -21,3 +21,6 @@ tree.pretty_print
 puts 'delete 50'
 tree.delete(50)
 tree.pretty_print
+
+p "find 80: #{tree.find(80)}"
+p "find 20: #{tree.find(20)}"

@@ -38,7 +38,35 @@ class Tree
     else
       root.left = insert(value, root.left)
     end
+    root
+  end
 
+  def min_value(node)
+    minv = node.data
+    until node.left.nil?
+      minv = node.left.data
+      node = node.left
+    end
+    minv
+  end
+
+  def delete(value, root = @root)
+    return root if root.nil?
+
+    if value < root.data
+      root.left = delete(value, root.left)
+    elsif value > root.data
+      root.right = delete(value, root.right)
+    else
+      if root.left.nil?
+        return root.right
+      elsif root.right.nil?
+        return root.right
+      end
+
+      root.data = min_value(root.right)
+      root.right = delete(root.data, root.right)
+    end
     root
   end
 

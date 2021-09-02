@@ -82,15 +82,44 @@ class Tree
   end
 
   def level_order
-    return nil if @root.nil?
+    return if @root.nil?
 
     queue = [@root]
+    arr = []
     until queue.empty?
       current = queue.shift
-      print "#{current.data} "
+      arr << current.data
       queue.push(current.left) unless current.left.nil?
       queue.push(current.right) unless current.right.nil?
     end
+    arr
+  end
+
+  def preorder(node = @root, arr = [])
+    return if node.nil?
+
+    arr << node.data
+    preorder(node.left, arr)
+    preorder(node.right, arr)
+    arr
+  end
+
+  def inorder(node = @root, arr = [])
+    return if node.nil?
+
+    inorder(node.left, arr)
+    arr << node.data
+    inorder(node.right, arr)
+    arr
+  end
+
+  def postorder(node = @root, arr = [])
+    return if node.nil?
+
+    postorder(node.left, arr)
+    postorder(node.right, arr)
+    arr << node.data
+    arr
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)

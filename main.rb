@@ -8,7 +8,10 @@ tree = Tree.new(arr)
 tree.pretty_print
 tree.insert(6)
 tree.pretty_print
-tree.level_order
+p tree.level_order
+p tree.preorder
+p tree.inorder
+p tree.postorder
 
 # arr = [20, 30, 40, 50, 60, 70, 80]
 # tree = Tree.new(arr)

@@ -12,6 +12,7 @@ p tree.level_order
 p tree.preorder
 p tree.inorder
 p tree.postorder
+puts tree.height(4)
 
 # arr = [20, 30, 40, 50, 60, 70, 80]
 # tree = Tree.new(arr)

@@ -122,6 +122,20 @@ class Tree
     arr
   end
 
+  def height(value)
+    node = find(value)
+
+    height_node(node)
+  end
+
+  def height_node(node)
+    return 0 if node.nil?
+
+    left_height = height_node(node.left)
+    right_height = height_node(node.right)
+    [left_height, right_height].max + 1
+  end
+
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"

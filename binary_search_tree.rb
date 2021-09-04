@@ -3,6 +3,7 @@
 # Tree Node
 class Node
   attr_accessor :data, :left, :right
+
   include Comparable
   def initialize(data)
     @data = data
@@ -134,6 +135,18 @@ class Tree
     left_height = height_node(node.left)
     right_height = height_node(node.right)
     [left_height, right_height].max + 1
+  end
+
+  def depth(value, root = @root, d = 0)
+    return 0 if root.nil?
+    return d if value == root.data
+
+    d += 1
+    if value < root.data
+      depth(value, root.left, d)
+    elsif value > root.data
+      depth(value, root.right, d)
+    end
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)

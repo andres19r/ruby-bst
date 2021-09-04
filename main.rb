@@ -13,6 +13,9 @@ p tree.preorder
 p tree.inorder
 p tree.postorder
 puts tree.height(4)
+puts "depth of 9: #{tree.depth(9)}"
+puts "depth of 6: #{tree.depth(6)}"
+puts "depth of 8: #{tree.depth(8)}"
 
 # arr = [20, 30, 40, 50, 60, 70, 80]
 # tree = Tree.new(arr)
